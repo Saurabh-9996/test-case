@@ -5,7 +5,6 @@ import { Header } from './components/Header';
 import { LoginPage } from './components/LoginPage';
 import { StaffUpdateForm } from './components/StaffUpdateForm';
 import { LiveStatusDisplay } from './components/LiveStatusDisplay';
-import { Ticker } from './components/Ticker';
 import { motion, AnimatePresence } from 'motion/react';
 import { Maximize2, Minimize2 } from 'lucide-react';
 
@@ -54,10 +53,7 @@ const App: React.FC = () => {
             )}
             
             {viewMode === 'DISPLAY' && (
-              <>
-                <LiveStatusDisplay />
-                <Ticker />
-              </>
+              <LiveStatusDisplay />
             )}
           </motion.div>
         </AnimatePresence>
