@@ -1,0 +1,5 @@
+{
+  "name": "Live OT Status Dashboard",
+  "description": "A responsive hospital operation theater dashboard allowing staff to update patient surgery status in real-time, with a high-visibility live display for relatives.",
+  "requestFramePermissions": []
+}
