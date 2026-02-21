@@ -24,19 +24,19 @@ const getStatusBadgeClass = (status: OTStatus) => {
 };
 
 const PatientRow: React.FC<{ r: PatientRecord }> = ({ r }) => (
-  <div className="w-full bg-white border border-slate-200 rounded-2xl p-8 mb-6 flex items-center shadow-sm transition-all hover:shadow-md">
-    <div className="w-1/4">
-      <span className="text-4xl font-mono font-black text-slate-700 tracking-tighter">
+  <div className="w-full bg-white border-2 border-slate-200 rounded-3xl p-10 mb-8 flex items-center shadow-md transition-all">
+    <div className="w-1/5">
+      <span className="text-5xl font-mono font-black text-slate-900 tracking-tighter">
         {r.uhid}
       </span>
     </div>
-    <div className="w-1/2">
-      <span className="text-4xl font-bold text-slate-800">
+    <div className="w-3/5">
+      <span className="text-6xl font-black text-slate-900 uppercase">
         {r.name}
       </span>
     </div>
-    <div className="w-1/4 flex justify-end">
-      <span className={`px-8 py-4 rounded-full text-2xl font-black border-2 ${getStatusBadgeClass(r.status)}`}>
+    <div className="w-1/5 flex justify-end">
+      <span className={`px-10 py-6 rounded-2xl text-3xl font-black border-4 ${getStatusBadgeClass(r.status)}`}>
         {r.status}
       </span>
     </div>
@@ -125,12 +125,12 @@ export const LiveStatusDisplay: React.FC = () => {
       </div>
 
       {/* Floating Scroller Area */}
-      <div className="flex-1 relative scrolling-mask px-12 pt-12 pb-20">
+      <div className="flex-1 relative px-12 pt-12 pb-20">
         {/* Table Headings - Sticky for context */}
-        <div className="flex px-10 mb-8 text-slate-400 font-black text-sm uppercase tracking-[0.5em] sticky top-0 z-20">
-          <div className="w-1/4">UHID</div>
-          <div className="w-1/2">Patient Name</div>
-          <div className="w-1/4 text-right">Current Status</div>
+        <div className="flex px-10 mb-8 text-slate-400 font-black text-xl uppercase tracking-[0.5em] sticky top-0 z-20">
+          <div className="w-1/5">UHID</div>
+          <div className="w-3/5">Patient Name</div>
+          <div className="w-1/5 text-right">Current Status</div>
         </div>
 
         {records.length === 0 ? (
@@ -150,16 +150,6 @@ export const LiveStatusDisplay: React.FC = () => {
         )}
       </div>
 
-      {/* Aesthetic Legend Footer */}
-      <div className="bg-white border-t border-slate-100 px-12 py-5 flex gap-10 justify-center items-center z-40">
-         <span className="text-sm font-black text-slate-300 uppercase tracking-[0.3em]">Status Legend</span>
-         <div className="flex gap-8">
-            <div className="flex items-center gap-3"><div className="w-3 h-3 rounded-full bg-red-500 shadow-sm shadow-red-200"></div><span className="text-xs font-bold text-slate-500 uppercase">Ongoing</span></div>
-            <div className="flex items-center gap-3"><div className="w-3 h-3 rounded-full bg-amber-500 shadow-sm shadow-amber-200"></div><span className="text-xs font-bold text-slate-500 uppercase">Recovery</span></div>
-            <div className="flex items-center gap-3"><div className="w-3 h-3 rounded-full bg-green-500 shadow-sm shadow-green-200"></div><span className="text-xs font-bold text-slate-500 uppercase">Shifted Ward</span></div>
-            <div className="flex items-center gap-3"><div className="w-3 h-3 rounded-full bg-blue-500 shadow-sm shadow-blue-200"></div><span className="text-xs font-bold text-slate-500 uppercase">Shifted OT</span></div>
-         </div>
-      </div>
     </div>
   );
 };
